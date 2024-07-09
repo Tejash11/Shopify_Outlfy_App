@@ -1,0 +1,33 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "e159660f047bb726d1457b8a968bf87d"
+name = "male-outfits-co"
+handle = "male-outfits-co"
+application_url = "https://denial-dc-segments-charming.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "mens-outfits-co.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://denial-dc-segments-charming.trycloudflare.com/auth/callback",
+  "https://denial-dc-segments-charming.trycloudflare.com/auth/shopify/callback",
+  "https://denial-dc-segments-charming.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-07"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks"
+
+[pos]
+embedded = false
