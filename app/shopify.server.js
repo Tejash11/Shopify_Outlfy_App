@@ -37,6 +37,17 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 
+
+const topRatedProductsRouter = require('./path-to-router-file');
+
+app.use('/api', topRatedProductsRouter);
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
+
 // Initialize Shopify API client
 const shopify = new Shopify({
   shopName: process.env.SHOPIFY_SHOP_NAME,
@@ -91,7 +102,6 @@ async function createTopRatedCollection(products) {
   }
   return collection;
 }
-
 
 
 
